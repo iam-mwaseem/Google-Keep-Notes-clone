@@ -5,9 +5,3 @@ export default function Main({ children, expanded }) {
     </div>
   );
 }
-
-/*    ${
-        expanded ? "w-[75%]" : "w-[100%]"
-      }
-
-      */

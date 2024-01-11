@@ -30,7 +30,7 @@ export default function Form({
   }
 
   function handleAddNotes() {
-    if (title !== "" && note !== "") {
+    if (title !== "" || note !== "") {
       const newNote = { title, note };
       setNotesList([...notesList, newNote]);
       setTitle("");
@@ -48,7 +48,6 @@ export default function Form({
   }
   useEffect(() => {
     const handleClickOutside = (event) => {
-      console.log(event.target);
       if (formRef.current && !formRef.current.contains(event.target)) {
         // Click outside the form, submit the task
         handleAddNotes();

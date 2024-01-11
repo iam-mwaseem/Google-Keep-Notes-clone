@@ -1,4 +1,16 @@
-export default function DisplayNotes({ title, note }) {
+import Footer from "./Footer";
+
+export default function DisplayNotes({
+  title,
+  note,
+  id,
+  notesList,
+  setNotesList,
+  trashList,
+  setTrashList,
+  archiveList,
+  setArchiveList,
+}) {
   console.log(title);
   return (
     <div className=" flex flex-col h-min border w-[240px]  mt-4">
@@ -8,17 +20,15 @@ export default function DisplayNotes({ title, note }) {
       <div className="  w-[238px]  h-auto">
         <p className="px-2 pt-3">{note}</p>
       </div>
-      <div className=" flex justify-end w-[238px]  h-auto">
-        <button className="mt-0 px-4  bg-white-500 text-black rounded-md">
-          Delete Note
-        </button>
-      </div>
+      <Footer
+        id={id}
+        notesList={notesList}
+        setNotesList={setNotesList}
+        trashList={trashList}
+        setTrashList={setTrashList}
+        archiveList={archiveList}
+        setArchiveList={setArchiveList}
+      />
     </div>
   );
 }
-
-/*
-min-h-[38px]
-min-h-[48px]
-min-h-[34px]
-*/
