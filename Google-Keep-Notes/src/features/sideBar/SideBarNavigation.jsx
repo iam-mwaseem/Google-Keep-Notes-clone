@@ -1,44 +1,34 @@
-import { useState } from "react";
+import { useAppLayout } from "../../contexts/AppLayoutContext";
 import LinkButton from "../../ui/LinkButton";
 
-export default function SideBar({ sideBar, setSideBar }) {
-  // const [expanded, setExpanded] = useState(false);
+export default function SideBar() {
+  const { sidebar, setSideBar } = useAppLayout();
   function handleClick() {
-    // setExpanded(true);
     setSideBar(true);
   }
+
   return (
     <>
       <div
-        className={`flex flex-col items-start px-auto mt-0 absolute shadow-2xl cursor-pointer    gap-4 bg-white ${
-          sideBar ? "w-[20%] " : " w-[5%] shadow-lg px-2  "
-        } h-dvh`}
+        className={`flex flex-col items-start min-h-screen  mt-0 absolute shadow-2xl cursor-pointer gap-4 bg-white ${
+          sidebar ? "w-[20%] sm:w-[21%] md:w-[21%]" : "w-[5%]  shadow-lg"
+        }`}
         onClick={handleClick}
       >
         <LinkButton to="note" onHandleClick={handleClick}>
           <div
-            className={`flex flex-row items-center  ${
-              sideBar
-                ? "visible w-full  hover:bg-orange-100 rounded-full"
-                : "invisible"
+            className={`flex flex-row items-center ${
+              sidebar ? "w-full hover:bg-orange-100 rounded-full" : "invisible"
             }`}
           >
-            {!sideBar ? (
-              <img
-                className=" w-9 h-5 m-2 visible  "
-                src="../../../src/assets/lightbulb_12.svg"
-                alt="Notes"
-              />
-            ) : (
-              <img
-                className=" w-9 h-5 m-2 visible  "
-                src="../../../src/assets/lightbulb_12.svg"
-                alt="Notes"
-              />
-            )}
-
-            <span className={sideBar ? "cursor-pointer" : "invisible"}>
-              {" "}
+            <img
+              className="w-9 h-5 mt-3 visible"
+              src="../../../src/assets/lightbulb.svg"
+              alt="Notes"
+            />
+            <span
+              className={sidebar ? "cursor-pointer mt-5" : "invisible mt-5"}
+            >
               Notes
             </span>
           </div>
@@ -47,52 +37,34 @@ export default function SideBar({ sideBar, setSideBar }) {
         <LinkButton to="archive" onHandleClick={handleClick}>
           <div
             className={`flex flex-row items-center ${
-              sideBar
-                ? "visible w-full  hover:bg-orange-100 rounded-full "
-                : "invisible"
+              sidebar ? "w-full hover:bg-orange-100 rounded-full" : "invisible"
             }`}
           >
-            {!sideBar ? (
-              <img
-                className=" w-9 h-5 mx-4 visible"
-                src="../../../src/assets/archive.svg "
-                alt="Archive"
-              />
-            ) : (
-              <img
-                className=" w-9 h-5 m-2 visible"
-                src="../../../src/assets/archive.svg "
-                alt="Archive"
-              />
-            )}
-            <span className=" cursor-pointer">Archive</span>
+            <img
+              className="w-9 h-5  mt-5 visible"
+              src="../../../src/assets/archive.svg"
+              alt="Archive"
+            />
+            <span className="cursor-pointer mt-5">Archive</span>
           </div>
         </LinkButton>
+
         <LinkButton to="trash" onHandleClick={handleClick}>
           <div
             className={`flex flex-row items-center ${
-              sideBar
-                ? "visible w-full hover:bg-orange-100 rounded-full"
-                : "invisible"
+              sidebar ? "w-full hover:bg-orange-100 rounded-full" : "invisible"
             }`}
           >
-            {!sideBar ? (
-              <img
-                src="../../../src/assets/trash.svg"
-                alt="Trash"
-                className=" w-9 h-5 m-2 visible"
-              />
-            ) : (
-              <img
-                src="../../../src/assets/trash.svg"
-                alt="Trash"
-                className=" w-9 h-5 m-2 visible"
-              />
-            )}
-            <span className=" cursor-pointer">Trash</span>
+            <img
+              src="../../../src/assets/trash.svg"
+              alt="Trash"
+              className="w-9 h-5 mt-5 visible"
+            />
+            <span className="cursor-pointer mt-5">Trash</span>
           </div>
         </LinkButton>
-        {sideBar && <p className=" mt-auto mx-auto">Created By M.Waseem</p>}
+
+        {sidebar && <p className="mt-auto mx-auto">Created By M.Waseem</p>}
       </div>
     </>
   );

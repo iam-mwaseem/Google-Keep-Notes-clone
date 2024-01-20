@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 export default function LinkButton({ children, to, onHandleClick }) {
-  const className = ' rounded-full  w-full mt-2"';
+  const className = ' rounded-full  w-full "';
 
   return (
     <Link onClick={onHandleClick} to={to} className={className}>
@@ -13,5 +13,5 @@ export default function LinkButton({ children, to, onHandleClick }) {
   <button className={className} onClick={onHandleClick}>
       {children}
     </button>
-
+mt-2
 */

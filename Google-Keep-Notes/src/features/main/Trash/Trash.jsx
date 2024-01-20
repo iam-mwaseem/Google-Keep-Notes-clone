@@ -1,6 +1,8 @@
+import { useNotes } from "../../../contexts/NotesContext";
 import DisplayNotes from "../Note/DisplayNotes";
 
-export default function Trash({ trashList }) {
+export default function Trash() {
+  const { trashList } = useNotes();
   return (
     <div className=" ml-72">
       {trashList.map((note) => (

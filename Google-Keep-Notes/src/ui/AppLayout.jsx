@@ -1,20 +1,17 @@
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../features/header/Header";
-import SideBar from "../features/sideBar/SideBarNavigation";
 import Main from "../features/main/Main";
+import SideBar from "../features/sideBar/sideBarNavigation";
 
 export default function AppLayout() {
-  const [sidebar, setSideBar] = useState(false);
-
   return (
     <div>
-      <Header sidebar={sidebar} setSideBar={setSideBar} />
-      <div className={`flex w-[100%] h-[calc(100vh-64px)]`}>
-        <Main expanded={sidebar}>
+      <Header />
+      <div className={`flex w-dvw h-dvh   `}>
+        <Main>
           <Outlet />
         </Main>
-        <SideBar sideBar={sidebar} setSideBar={setSideBar} />
+        <SideBar />
       </div>
     </div>
   );

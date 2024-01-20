@@ -1,13 +1,8 @@
 import { useRef, useState, useEffect } from "react";
+import { useNotes } from "../../../contexts/NotesContext";
 
-export default function Form({
-  title,
-  setTitle,
-  note,
-  setNote,
-  notesList,
-  setNotesList,
-}) {
+export default function Form({ title, setTitle, note, setNote }) {
+  const { notesList, setNotesList } = useNotes();
   const [showTitleField, setShowTitleField] = useState(false);
 
   const [textAreaStyle, setTextAreaStyle] = useState({
@@ -32,7 +27,9 @@ export default function Form({
   function handleAddNotes() {
     if (title !== "" || note !== "") {
       const newNote = { title, note };
+
       setNotesList([...notesList, newNote]);
+
       setTitle("");
       setNote("");
       setShowTitleField(false);

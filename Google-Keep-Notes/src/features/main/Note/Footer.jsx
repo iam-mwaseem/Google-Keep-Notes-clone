@@ -1,11 +1,8 @@
-export default function Footer({
-  notesList,
-  setNotesList,
-  id,
-  trashList,
-  setTrashList,
-  setArchiveList,
-}) {
+import { useNotes } from "../../../contexts/NotesContext";
+
+export default function Footer({ id }) {
+  const { notesList, setNotesList, trashList, setTrashList, setArchiveList } =
+    useNotes();
   function handleArchive() {
     const updatedNoteList = notesList.filter((note, index) => index !== id);
     const archivedNote = notesList.find((note, index) => index === id);
