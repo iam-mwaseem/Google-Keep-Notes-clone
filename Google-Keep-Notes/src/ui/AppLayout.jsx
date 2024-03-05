@@ -7,7 +7,7 @@ export default function AppLayout() {
   return (
     <div>
       <Header />
-      <div className={`flex w-dvw h-dvh   `}>
+      <div className={`flex w-screen h-screen   `}>
         <Main>
           <Outlet />
         </Main>

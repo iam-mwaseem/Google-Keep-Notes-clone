@@ -59,7 +59,7 @@ export default function Form({ title, setTitle, note, setNote }) {
     };
   }, [handleAddNotes]);
   return (
-    <div className={` px-auto mx-auto `}>
+    <div className={`  px-auto mx-auto h-17 `}>
       <form className="flex flex-col " ref={formRef}>
         {showTitleField && (
           <input
@@ -73,8 +73,8 @@ export default function Form({ title, setTitle, note, setNote }) {
           placeholder="Take a note..."
           className={`border-none focus:outline-none overscroll-none w-full   h-auto ${
             showTitleField
-              ? " mb-1 py-[20px] px-[15px]"
-              : "  w-full h-auto py-[10px] px-[15px]"
+              ? " mb-1 py-[20px] px-[15px] h-auto"
+              : "  w-full h-11 py-[10px] px-[15px]"
           } resize-none`}
           value={note}
           onClick={handleTextAreaClick}

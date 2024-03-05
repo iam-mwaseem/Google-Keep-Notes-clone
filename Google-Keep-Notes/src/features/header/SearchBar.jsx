@@ -18,10 +18,10 @@ export default function SearchBar() {
     setFilteredNotesList(filteredNotes);
   }
   return (
-    <div className="  px-36 sm:px-37 md:px-38">
+    <div className="  px-20">
       <input
         placeholder="🔍 Search"
-        className=" border border-none w-[345px] sm:w-[450px] md:w-[600px] bg-slate-100 focus:bg-white focus:outline-none  py-3 px-2  rounded-md"
+        className=" border border-none w-[450px] sm:w-[450px] md:w-[700px]  bg-slate-100 focus:bg-white focus:outline-none  py-3 px-2  rounded-md"
         onChange={(e) => handleSearchInput(e.target.value)}
       />
     </div>
